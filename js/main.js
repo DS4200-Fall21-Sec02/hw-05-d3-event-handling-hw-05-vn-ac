@@ -29,13 +29,12 @@ let svg = d3
   );
 
 // function for changing color
-var changeColor = (function () {
-  var currentColor = "white";
+var changeCircleColor = (function () {
+  d3.selectAll("circle").transition().duration(2000).style("fill", "blue");
+})();
 
-  return function () {
-    currentColor = currentColor == "white" ? "magenta" : "white";
-    d3.select(this).style("fill", currentColor);
-  };
+var changeSquareColor = (function () {
+  d3.selectAll("rect").transition().duration(2000).style("fill", "red");
 })();
 
 // Add a square
@@ -46,7 +45,7 @@ let rect = svg
   .attr("width", "20%")
   .attr("height", "20%")
   .attr("fill", "#a6cee3")
-  .on("click", changeColor);
+  .on("click", changeCircleColor);
 
 // Add a circle
 let circle = svg
@@ -54,4 +53,5 @@ let circle = svg
   .attr("cx", "350")
   .attr("cy", "250")
   .attr("r", "60")
-  .attr("fill", "#b2df8a");
+  .attr("fill", "#b2df8a")
+  .on("click", changeSquareColor);
