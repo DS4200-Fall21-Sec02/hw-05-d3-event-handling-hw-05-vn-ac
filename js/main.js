@@ -30,11 +30,11 @@ let svg = d3
 
 // function for changing color
 var changeCircleColor = (function () {
-  d3.selectAll("circle").transition().duration(2000).style("fill", "blue");
+  svg.selectAll("circle").transition().duration(2000).style("fill", "blue");
 })();
 
 var changeSquareColor = (function () {
-  d3.selectAll("rect").transition().duration(2000).style("fill", "red");
+  svg.selectAll("rect").transition().duration(2000).style("fill", "red");
 })();
 
 // Add a square
