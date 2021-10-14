@@ -68,7 +68,7 @@ let rect = svg
   .call(d3.drag().on("start", dragTop).on("drag", dragRect))
   .on("mouseover", function () {
     // border when mouse hovers over
-    d3.select(this).attr("stroke", "#FFFF00").attr("stroke-width", "10");
+    d3.select(this).attr("stroke", "#000000").attr("stroke-width", "10");
   })
   .on("mouseout", function () {
     // border disappears when mouse leaves the shape
@@ -86,7 +86,7 @@ let circle = svg
   .call(d3.drag().on("start", dragTop).on("drag", dragCircle))
   .on("mouseover", function () {
     // border when mouse hovers over
-    d3.select(this).attr("stroke", "#FFFF00").attr("stroke-width", "10");
+    d3.select(this).attr("stroke", "#000000").attr("stroke-width", "10");
   })
   .on("mouseout", function () {
     // border disappears when mouse leaves the shape
