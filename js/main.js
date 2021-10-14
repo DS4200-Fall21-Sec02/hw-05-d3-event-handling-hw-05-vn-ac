@@ -94,6 +94,7 @@ let circle = svg
   })
   .on("dblclick", function () {
     // change both shapes' colors to random colors on double click
+    const random = Math.floor(Math.random() * 3);
     d3.select("circle").transition().attr("fill", colors1[random]);
     d3.select("rect").transition().attr("fill", colors1[random]);
     k++;
