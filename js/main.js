@@ -28,6 +28,8 @@ let svg = d3
     ].join(" ")
   );
 
+const colors1 = ["red", "blue", "green"];
+
 // function for changing color
 var changeCircleColor = (function () {
   svg.selectAll("circle").transition().duration(2000).style("fill", "blue");
