@@ -30,21 +30,26 @@ let svg = d3
 
 const colors1 = ["red", "blue", "green"];
 
+
+// picks a random color from color1 array
 function cClick() {
   const random = Math.floor(Math.random() * 3);
   circle.attr("fill", colors1[random]);
 }
 
+// puts one shape on top of another
 function dragTop(event, d) {
   d3.select(this).raise().classed("active", true);
 }
 
+// drags the circle
 function dragCircle(event, d) {
   var x = event.x;
   var y = event.y;
   d3.select(this).attr("cx", x).attr("cy", y);
 }
 
+// drags the square
 function dragRect(event, d) {
   var x = event.x;
   var y = event.y;
