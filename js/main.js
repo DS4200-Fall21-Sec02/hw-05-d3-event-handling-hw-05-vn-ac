@@ -37,6 +37,31 @@ var changeSquareColor = (function () {
   svg.selectAll("rect").transition().duration(2000).style("fill", "red");
 })();
 
+function cClick() {
+  const random = Math.floor(Math.random() * 3)
+  circle.attr('fill', colors1[random]);
+}
+
+function dragTop(event,d){   
+  d3.select(this).raise().classed("active", true);  
+}
+
+function dragCircle(event,d){
+  var x = event.x;
+  var y = event.y;
+  d3.select(this)
+    .attr("cx", x)
+    .attr("cy", y);
+}
+
+function dragRect(event,d){
+  var x = event.x;
+  var y = event.y;
+  d3.select(this)
+    .attr("x", x)
+    .attr("y", y);
+}
+
 // Add a square
 let rect = svg
   .append("rect")
@@ -46,6 +71,10 @@ let rect = svg
   .attr("height", "20%")
   .attr("fill", "#a6cee3")
   .on("click", changeCircleColor)
+  .on('click', cClick)
+  .call(d3.drag()
+        .on('start', dragTop)
+        .on('drag', dragRect)
   .on("mouseover", function () {
     // border when mouse hovers over
     d3.select(this).attr("stroke", "#FFFF00").attr("stroke-width", "10");
@@ -63,6 +92,9 @@ let circle = svg
   .attr("r", "60")
   .attr("fill", "#b2df8a")
   .on("click", changeSquareColor)
+  .call(d3.drag()
+        .on('start', dragTop)
+        .on('drag', dragCircle)
   .on("mouseover", function () {
     // border when mouse hovers over
     d3.select(this).attr("stroke", "#FFFF00").attr("stroke-width", "10");
