@@ -82,7 +82,6 @@ let circle = svg
   .attr("cy", "250")
   .attr("r", "60")
   .attr("fill", "#b2df8a")
-  .on("click", cClick)
   .call(d3.drag().on("start", dragTop).on("drag", dragCircle))
   .on("mouseover", function () {
     // border when mouse hovers over
