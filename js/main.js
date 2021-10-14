@@ -45,7 +45,15 @@ let rect = svg
   .attr("width", "20%")
   .attr("height", "20%")
   .attr("fill", "#a6cee3")
-  .on("click", changeCircleColor);
+  .on("click", changeCircleColor)
+  .on("mouseover", function () {
+    // border when mouse hovers over
+    d3.select(this).attr("stroke", "#FFFF00").attr("stroke-width", "10");
+  })
+  .on("mouseout", function () {
+    // border disappears when mouse leaves the shape
+    d3.select(this).attr("stroke", "none");
+  });
 
 // Add a circle
 let circle = svg
@@ -54,4 +62,26 @@ let circle = svg
   .attr("cy", "250")
   .attr("r", "60")
   .attr("fill", "#b2df8a")
-  .on("click", changeSquareColor);
+  .on("click", changeSquareColor)
+  .on("mouseover", function () {
+    // border when mouse hovers over
+    d3.select(this).attr("stroke", "#FFFF00").attr("stroke-width", "10");
+  })
+  .on("mouseout", function () {
+    // border disappears when mouse leaves the shape
+    d3.select(this).attr("stroke", "none");
+  })
+  .on("dblclick", function () {
+    // change both shapes' colors to random colors on double click
+    d3.select(this)
+      .transition()
+      .attr("fill", function (d, i) {
+        return d3.scale.category20(i);
+      });
+    d3.select("rect")
+      .transition()
+      .attr("fill", function (d, i) {
+        return d3.scale.category20(i);
+      });
+    k++;
+  });
