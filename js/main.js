@@ -73,12 +73,6 @@ let rect = svg
   .on("mouseout", function () {
     // border disappears when mouse leaves the shape
     d3.select(this).attr("stroke", "none");
-  })
-.on("dblclick", function () {
-    // change both shapes' colors to random colors on double click
-    d3.select("circle").transition().attr("fill", colors1[random]);
-    d3.select("rect").transition().attr("fill", colors1[random]);
-    k++;
   });
 
 // Add a circle
